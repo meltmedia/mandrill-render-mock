@@ -7,16 +7,5 @@ this functionality, this library will be deprecated.
 **Note:** This library does not support the Mailchimp language as Mandrill already supports its usage.
 
 ## Usage
-```
-var MandrillRender = require('./index');
-MandrillRender.render({
-  .render({
-    "template_name": name,
-    "template_content": content,
-    "merge_vars": merge_vars
-  }, function(result) {
-  
-  }, function(error) {
-  
-  });
-```
+
+View the tests for examples.
