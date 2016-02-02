@@ -54,4 +54,40 @@ describe('Mandrill render mock', function() {
 
   });
 
+  it('should handle an unsub variable', function(done) {
+
+    MandrillRender.render({
+      'template': fixtures.unsubTemplate,
+      'merge_vars': []
+    }, function(result) {
+
+      expect(result.html).to.equal('<table>http://google.com?tbd</table>');
+      done();
+
+    });
+
+  });
+
+  it('should handle a complex template', function(done) {
+
+    MandrillRender.render({
+      'template': fixtures.largeTemplateWithConditionals,
+      'merge_vars': [{
+        'name': 'custom_message',
+        'content': 'A message!'
+      }, {
+        'name': 'signature',
+        'content': 'Sincerely, Person'
+      }]
+    }, function(result) {
+
+      expect(result.html).to.contain('A message!');
+      expect(result.html).to.contain('Sincerely, Person');
+      expect(result.html).to.contain('google.com?tbd');
+      done();
+
+    });
+
+  });
+
 });

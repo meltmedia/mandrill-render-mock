@@ -4,8 +4,12 @@ var Handlebars = require('handlebars');
 var _ = require('lodash');
 
 // This helper allows us to prevent removing template code for missing data
-Handlebars.registerHelper('helperMissing', function(options) {
+Handlebars.registerHelper('helperMissing', function(options) {;
   return ['{{', options.name, '}}'].join('');
+});
+
+Handlebars.registerHelper('unsub', function(options) {
+  return options + "?tbd";
 });
 
 module.exports = {
